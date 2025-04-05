@@ -1,0 +1,33 @@
+# 🔐 Sensitive Environment Files
+.env
+
+# 🚫 Node Modules (installed via npm install)
+node_modules/
+
+# ⚙️ OS-Specific or IDE-Specific Junk
+.DS_Store
+Thumbs.db
+
+# 🛠️ Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# 🚀 Runtime Output
+dist/
+build/
+
+# 💻 VS Code Settings (Optional)
+.vscode/
+
+# 📦 Dependency Lock Files (optional for team consistency)
+package-lock.json
+
+# 🗃️ PDF Vouchers (if you don't want to push them)
+vouchers/
+
+# 🔍 Coverage Reports (if using testing)
+coverage/
+
+# 🗃️ Logs Folder (if you log to files)
+logs/
