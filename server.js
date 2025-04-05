@@ -92,7 +92,7 @@ app.post("/bookings", async (req, res) => {
     await booking.save();
 
     const filePath = await generateVoucher(booking);
-    const documentUrl = `https://voucher-g1k5.onrender.com/vouchers/${booking._id}.pdf`; // Update to public URL if hosted
+    const documentUrl = `https://backend-sampath-vouchers.onrender.com/${booking._id}.pdf`; // Update to public URL if hosted
 
     await sendWhatsAppMessage(booking.phoneNumber, documentUrl);
 
