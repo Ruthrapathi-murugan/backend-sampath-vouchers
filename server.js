@@ -10,7 +10,13 @@ const twilio = require("twilio");
 
 const app = express();
 app.use(bodyParser.json());
-app.use(cors());
+
+
+
+app.use(cors({
+  origin: ["http://localhost:5173", "https://your-frontend-domain.com"], // Add frontend domain if deployed
+  methods: ["GET", "POST"],
+}));
 
 // ✅ MongoDB Connection
 mongoose
@@ -92,7 +98,8 @@ app.post("/bookings", async (req, res) => {
     await booking.save();
 
     const filePath = await generateVoucher(booking);
-    const documentUrl = `https://backend-sampath-vouchers.onrender.com/${booking._id}.pdf`; // Update to public URL if hosted
+    const documentUrl = `https://backend-sampath-vouchers.onrender.com/vouchers/${booking._id}.pdf`;
+    // Update to public URL if hosted
 
     await sendWhatsAppMessage(booking.phoneNumber, documentUrl);
 
